@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+Список Категорий
+{% endblock %}
+
+{% block body %}
+    <h1>Список категорий</h1>
+    <ul>
+
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span> Количество Стилей: {{item.styles_count()}}</span>
+            <a href="/style-list/?id={{item.id}}">Показать стили </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/create-category/">Создать категорию</a>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+Список Стилей "{{name}}"
+{% endblock %}
+{% block body %}
+    <div>
+        <a href="/category-list">Категории</a>
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+        <a href="/create-style/?id={{id}}">Создать стиль</a>
+        <br>
+        <h1>Список стилей для категории "{{name}}"</h1>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span><a href="/copy-style/?name={{item.name}}">скопировать</a></span>
+        </li>
+        {% endfor %}
+    </div>
+{% endblock %}
