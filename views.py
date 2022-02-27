@@ -1,36 +1,49 @@
 from Nicks_framework.templator import render
 from patterns.сreational_patterns import Engine, Logger
+from patterns.structural_patterns import AppRoute, Debug
 
 site = Engine()
 logger = Logger('main')
 
+routes = {}
+
 
 # контроллер - главная страница
+@AppRoute(routes=routes, url='/')
 class Index:
+    @Debug(name='Index')
     def __call__(self, request):
         return '200 OK', render('index.html')
 
 
 # контроллер "О проекте"
+@AppRoute(routes=routes, url='/about/')
 class About:
+    @Debug(name='About')
     def __call__(self, request):
         return '200 OK', render('about.html')
 
 
 # контроллер - обратной связи
+@AppRoute(routes=routes, url='/contacts/')
 class Contacts:
+    @Debug(name='Contacts')
     def __call__(self, request):
         return '200 OK', render('contact.html')
 
 
 # контроллер - Коллекции
+@AppRoute(routes=routes, url='/collections/')
 class Collections:
+    @Debug(name='Collections')
     def __call__(self, request):
         return '200 OK', render('collections.html')
 
 
 # контроллер - стилей
+@AppRoute(routes=routes, url='/style-list/')
 class StyleList:
+    @Debug(name='StyleList')
     def __call__(self, request):
         logger.log('Список Стилей')
         try:
@@ -44,9 +57,12 @@ class StyleList:
 
 
 # контроллер - создать стиль
+@AppRoute(routes=routes, url='/create-style/')
 class CreateStyle:
+
     category_id = -1
 
+    @Debug(name='CreateStyle')
     def __call__(self, request):
         if request['method'] == 'POST':
             # метод пост
@@ -80,7 +96,9 @@ class CreateStyle:
 
 
 # контроллер - создать категорию
+@AppRoute(routes=routes, url='/create-category/')
 class CreateCategory:
+    @Debug(name='CreateCategory')
     def __call__(self, request):
 
         if request['method'] == 'POST':
@@ -109,7 +127,9 @@ class CreateCategory:
 
 
 # контроллер - список категорий
+@AppRoute(routes=routes, url='/category-list/')
 class CategoryList:
+    @Debug(name='CategoryList')
     def __call__(self, request):
         logger.log('Список категорий')
         return '200 OK', render('category_list.html',
@@ -117,7 +137,9 @@ class CategoryList:
 
 
 # контроллер - копировать курс
+@AppRoute(routes=routes, url='/copy-style/')
 class CopyStyle:
+    @Debug(name='CopyStyle')
     def __call__(self, request):
         request_params = request['request_params']
 

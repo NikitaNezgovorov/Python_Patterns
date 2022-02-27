@@ -1,5 +1,5 @@
 from datetime import date
-from views import Index, About, Contacts, CategoryList, Collections, CreateCategory, StyleList, CreateStyle, CopyStyle
+# from views import Index, About, Contacts, CategoryList, Collections, CreateCategory, StyleList, CreateStyle, CopyStyle
 
 
 # front controller
@@ -13,14 +13,14 @@ def other_front(request):
 
 fronts = [secret_front, other_front]
 
-routes = {
-    '/': Index(),
-    '/about/': About(),
-    '/contacts/': Contacts(),
-    '/category-list/': CategoryList(),
-    '/create-category/': CreateCategory(),
-    '/style-list/': StyleList(),
-    '/create-style/': CreateStyle(),
-    '/copy-style/': CopyStyle(),
-    '/collections/': Collections(),
-}
+# routes = {
+#     '/': Index(),
+#     '/about/': About(),
+#     '/contacts/': Contacts(),
+#     '/category-list/': CategoryList(),
+#     '/create-category/': CreateCategory(),
+#     '/style-list/': StyleList(),
+#     '/create-style/': CreateStyle(),
+#     '/copy-style/': CopyStyle(),
+#     '/collections/': Collections(),
+# }
