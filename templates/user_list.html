@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+Список пользователей
+{% endblock %}
+{% block body %}
+	<div>
+		<li>
+			<a href="/create-user/">Создать пользователя</a>
+		</li>
+		<li>
+			<a href="/add-user/">Добавить пользователя к стилю</a>
+		</li>
+	</div>
+    <h1>Список пользователей</h1>
+    <div>
+
+        {% for item in objects_list %}
+        <li>
+            {{item.name}}
+            {% for style in item.styles %}
+                {{style.name}}
+            {% endfor %}
+        </li>
+        {% endfor %}
+    </div>
+{% endblock %}
